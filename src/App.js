@@ -1,14 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Grid from './Grid';
+import Trailer from './Trailer';
 
-const Trailer = ({ data }) => (
-  <a href={ data.url }
-     target="_blank"
-     rel="noopener noreferrer">
-    trailer...
-  </a>
-);
 
 const config = [
   {
@@ -23,11 +17,11 @@ const config = [
     title: 'rating',
     field: 'imdbRating',
   },
-//  {
-//    title: 'trailer',
-//    field: 'Trailer',
-//    component: Trailer
-//  }
+ {
+   title: 'trailer',
+   field: 'Trailer',
+   component: Trailer
+ }
 ];
 
 const App = ({ data }) => (

@@ -1,4 +1,5 @@
 import React from 'react';
+import Trailer from './Trailer';
 
 const Grid = ({ config, data }) => (
   <table>
@@ -10,13 +11,19 @@ const Grid = ({ config, data }) => (
       </tr>
     </thead>
     <tbody>
-        {data.map((movie, i) => (
-          <tr key={i}>
-            {config.map((item, j) => (
-              <td key={j}>{movie[item.field]}</td>
-            ))}
-          </tr>
-        ))}
+      {data.map((movie, i) => (
+        <tr key={i}>
+          {config.map((item, j) => (
+            <td key={j}>
+              {item.title === 'trailer' ? (
+                <item.component data={movie[item.field].url} />
+              ) : (
+                movie[item.field]
+              )}
+            </td>
+          ))}
+        </tr>
+      ))}
     </tbody>
   </table>
 );
